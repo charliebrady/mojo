@@ -3,6 +3,7 @@ This file documents the revision history for Perl extension Mojolicious.
         - Fix exception in Mojo::JSON (under perl 5.8.5)
         - Fix tests (under perl 5.8.5)
         - Decreased Perl version requirement to 5.8.5 (all tests pass on RHEL4's perl 5.8.5)
+        - Improve date.t test (suppress noise).
 
 1.01 2010-12-27 00:00:00
         - Relicensed some of the images to make sure Mojolicious can be

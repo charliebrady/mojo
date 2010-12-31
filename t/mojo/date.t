@@ -33,5 +33,9 @@ is $date->parse('Thu, 01 Jan 1970 00:00:00 GMT')->epoch,
 
 # Negative epoch value
 $date = Mojo::Date->new;
+{
+# Hush expected warnings from Time::Local::timegm
+local $SIG{__WARN__} = sub {};
 ok $date->parse('Mon, 01 Jan 1900 00:00:00'), 'right format';
+}
 is $date->epoch, undef, 'no epoch value';
