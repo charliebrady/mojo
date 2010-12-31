@@ -402,6 +402,7 @@ use warnings;
 
 use base 'Mojo::Base';
 use overload (
+    'cmp' => sub { $_[0]->{_value} cmp $_[1]->{_value} },
     '0+' => sub { $_[0]->{_value} },
     '""' => sub { $_[0]->{_value} }
 );
