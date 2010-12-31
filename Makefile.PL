@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-use 5.008007;
+use 5.008005;
 
 use strict;
 use warnings;
@@ -12,7 +12,7 @@ use ExtUtils::MakeMaker;
 my ($mm) = $ExtUtils::MakeMaker::VERSION =~ /^([^_]+)/;
 
 # We only use core modules, so you shouldn't have to install anything besides
-# Perl 5.8.7!
+# Perl 5.8.5!
 WriteMakefile(
     NAME         => 'Mojolicious',
     VERSION_FROM => 'lib/Mojolicious.pm',
@@ -24,7 +24,7 @@ WriteMakefile(
     (   $mm < 6.46
         ? ()
         : ( META_MERGE => {
-                requires  => {perl => '5.008007'},
+                requires  => {perl => '5.008005'},
                 resources => {
                     homepage => 'http://mojolicio.us',
                     license  => 'http://dev.perl.org/licenses/',

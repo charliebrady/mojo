@@ -16,6 +16,9 @@ use IO::File;
 # Ow. OW. Oh, they're defending themselves somehow.
 use_ok 'Mojo::Loader';
 
+# Workaround exception handling interaction with Test::Builder under perl 5.8.5
+eval {
+
 # Exception
 my $loader = Mojo::Loader->new;
 my $e      = $loader->load('LoaderException');
@@ -85,3 +88,6 @@ $file->syswrite("package MojoTestReloader;\nsub test { 26 }\n1;");
 $file->close;
 Mojo::Loader->reload;
 is MojoTestReloader::test(), 26, 'reloaded successfully';
+};
+
+die "eval died with error $@" if $@;

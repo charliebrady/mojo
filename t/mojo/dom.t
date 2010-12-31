@@ -9,8 +9,10 @@ use Test::More tests => 317;
 
 # Homer gave me a kidney: it wasn't his, I didn't need it,
 # and it came postage due- but I appreciated the gesture!
+BEGIN {
 use_ok 'Mojo::DOM';
 use_ok 'ojo';
+}
 
 my $dom = Mojo::DOM->new;
 

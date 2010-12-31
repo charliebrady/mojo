@@ -24,6 +24,9 @@ use_ok 'Mojo::Message';
 use_ok 'Mojo::Message::Request';
 use_ok 'Mojo::Message::Response';
 
+# Workaround exception handling interaction with Test::Builder under perl 5.8.5
+eval {
+
 # Pollution
 123 =~ m/(\d+)/;
 
@@ -2179,3 +2182,6 @@ ok $res->dom, 'dom built';
 $count = 0;
 $res->dom('a')->each(sub { $count++ });
 is $count, 2, 'all anchors found';
+};
+
+die "eval died with error $@" if $@;
